@@ -14,12 +14,12 @@ struct PianoPlugin;
 
 struct PianoDsp<F>(F);
 
-impl<T: AudioUnit32 + 'static, F: Send + Sync + 'static + Fn() -> T> DspGraph for PianoDsp<F> {
+impl<T: AudioUnit + 'static, F: Send + Sync + 'static + Fn() -> T> DspGraph for PianoDsp<F> {
     fn id(&self) -> Uuid {
         Uuid::from_u128(0xa1a2a3a4b1b2c1c2d1d2d3d4d5d6d7d8u128)
     }
 
-    fn generate_graph(&self) -> Box<dyn AudioUnit32> {
+    fn generate_graph(&self) -> Box<dyn AudioUnit> {
         Box::new((self.0)())
     }
 }
@@ -28,7 +28,7 @@ impl<T: AudioUnit32 + 'static, F: Send + Sync + 'static + Fn() -> T> DspGraph fo
 struct PianoId(Uuid);
 
 #[derive(Resource)]
-struct PitchVar(Shared<f32>);
+struct PitchVar(Shared);
 
 impl PitchVar {
     fn set_pitch(&self, pitch: Pitch) {

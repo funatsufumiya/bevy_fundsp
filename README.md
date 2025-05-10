@@ -32,7 +32,7 @@ fn main() {
         .run();
 }
 
-fn white_noise() -> impl AudioUnit32 {
+fn white_noise() -> impl AudioUnit {
     white() >> split::<U2>() * 0.2
 }
 
@@ -60,6 +60,8 @@ fn play_noise(
 | `bevy_fundsp` | `bevy` | `bevy_kira_audio` | `bevy_oddio` | `fundsp` |
 | ------------- | ------ | ----------------- | ------------ | -------- |
 | bevy_main     | main   | bevy_main         | bevy_main    | main     |
+| 0.4.1         | 0.11   | 0.17              | 0.5          | 0.20     |
+| 0.4.0         | 0.11   | 0.16              | 0.5          | 0.15     |
 | 0.3.0         | 0.10   | 0.15              | 0.4          | 0.12     |
 | 0.2.0         | 0.9    | 0.13              | 0.3          | 0.9      |
 | 0.1.0         | 0.8    | 0.11              |              | 0.6      |

@@ -4,7 +4,7 @@
 use {
     crate::dsp_graph::DspGraph,
     bevy::reflect::{TypePath, TypeUuid},
-    fundsp::{hacker32::AudioUnit32, wave::Wave32},
+    fundsp::{audiounit::AudioUnit, wave::Wave},
     std::{cell::RefCell, sync::Arc},
 };
 
@@ -28,7 +28,7 @@ pub enum SourceType {
     /// Therefore, the audio is of definite length,
     /// and the sound last for the given duration.
     ///
-    /// See [`Wave32`](fundsp::wave::Wave32) on how this is converted.
+    /// See [`Wave`](fundsp::wave::Wave) on how this is converted.
     Static {
         /// The duration of the source in seconds.
         duration: f32,
@@ -61,7 +61,7 @@ impl DspSource {
     /// otherwise it will panic,
     /// as it does not know how long it is.
     ///
-    /// Internally, this uses [`fundsp::wave::Wave32`].
+    /// Internally, this uses [`fundsp::wave::Wave`].
     #[cfg_attr(feature = "oddio", allow(dead_code))]
     pub(crate) fn to_bytes(&self) -> Vec<u8> {
         let duration = match self.source_type {
@@ -71,7 +71,7 @@ impl DspSource {
 
         let mut node = self.dsp_graph.generate_graph();
 
-        let wave = Wave32::render(
+        let wave = Wave::render(
             f64::from(self.sample_rate),
             f64::from(duration),
             node.as_mut(),
@@ -104,7 +104,7 @@ impl IntoIterator for DspSource {
 /// This is infinite, and would never return `None`.
 pub struct Iter {
     pub(crate) sample_rate: f32,
-    pub(crate) audio_unit: RefCell<Box<dyn AudioUnit32>>,
+    pub(crate) audio_unit: RefCell<Box<dyn AudioUnit>>,
 }
 
 pub(crate) trait Source {

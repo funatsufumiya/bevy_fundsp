@@ -110,7 +110,7 @@ pub trait DspAppExt {
     ///     .add_dsp_source(a_simple_440hz_sine_wave, SourceType::Dynamic)
     ///     .run();
     ///
-    /// fn a_simple_440hz_sine_wave() -> impl AudioUnit32 {
+    /// fn a_simple_440hz_sine_wave() -> impl AudioUnit {
     ///     sine_hz(440.0)
     /// }
     /// ```

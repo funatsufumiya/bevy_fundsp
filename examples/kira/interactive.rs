@@ -13,12 +13,12 @@ fn main() {
         .run();
 }
 
-fn sine_wave() -> impl AudioUnit32 {
+fn sine_wave() -> impl AudioUnit {
     // Note is A4
     sine_hz(440.0) >> split::<U2>() * 0.2
 }
 
-fn triangle_wave() -> impl AudioUnit32 {
+fn triangle_wave() -> impl AudioUnit {
     // Note is G4
     triangle_hz(392.0) >> split::<U2>() * 0.2
 }
