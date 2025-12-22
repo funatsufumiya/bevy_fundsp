@@ -39,23 +39,15 @@ fn setup(
     dsp_manager: Res<DspManager>,
 ) {
     commands.spawn((
-        AudioSourceBundle {
-            source: assets.add(dsp_manager.get_graph(sine_wave).unwrap()),
-            settings: PlaybackSettings {
-                paused: false,
-                ..default()
-            },
+        AudioPlayer {
+            0: assets.add(dsp_manager.get_graph(sine_wave).unwrap())
         },
         Dsp::Sine,
     ));
 
     commands.spawn((
-        AudioSourceBundle {
-            source: assets.add(dsp_manager.get_graph(triangle_wave).unwrap()),
-            settings: PlaybackSettings {
-                paused: true,
-                ..default()
-            },
+        AudioPlayer {
+            0: assets.add(dsp_manager.get_graph(triangle_wave).unwrap())
         },
         Dsp::Triangle,
     ));
