@@ -20,7 +20,7 @@ impl Backend for OddioBackend {
     type StaticAudioSource = AudioSource<[f32; 2]>;
 
     fn init_app(app: &mut App) {
-        app.add_audio_source::<_, DspSource>();
+        // app.add_audio_source::<_, DspSource>();
     }
 
     #[allow(clippy::cast_possible_truncation, clippy::cast_sign_loss)]

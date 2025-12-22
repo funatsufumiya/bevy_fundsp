@@ -1,7 +1,7 @@
 [package]
 name = "bevy_fundsp"
 authors = ["Gio Genre De Asis"]
-version = "0.4.1"
+version = "0.5.0"
 edition = "2021"
 description = "A Bevy plugin that integrates FunDSP into Bevy."
 homepage = "https://github.com/harudagondi/bevy_fundsp"
@@ -13,7 +13,8 @@ categories = ["game-development", "multimedia::audio"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-default = ["bevy_audio"]
+# default = ["bevy_audio"]
+default = []
 kira = ["dep:kira", "bevy_kira_audio"]
 bevy_audio = ["bevy/bevy_audio", "bevy/wav", "rodio"]
 oddio = ["bevy_oddio"]
@@ -33,14 +34,14 @@ features = [
 
 [dependencies.bevy]
 # git = "https://github.com/bevyengine/bevy"
-version = "0.11"
+version = "0.12"
 default-features = false 
 features = ["bevy_asset"]
 
 [dependencies.bevy_kira_audio]
 # git = "https://github.com/NiklasEi/bevy_kira_audio.git"
 # branch = "bevy_main"
-version = "0.17"
+version = "0.18"
 default-features = false
 features = ["wav"]
 optional = true
@@ -55,7 +56,7 @@ features = ["wav"]
 
 [dev-dependencies.bevy]
 # git = "https://github.com/bevyengine/bevy"
-version = "0.11"
+version = "0.12"
 default-features = false
 features = [
   "bevy_core_pipeline",
@@ -70,7 +71,6 @@ features = [
   "bevy_gilrs",
   "png",
   "hdr",
-  "filesystem_watcher",
   "x11"
 ]
 

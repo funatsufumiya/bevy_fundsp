@@ -3,6 +3,10 @@
 use {bevy::prelude::*, bevy_fundsp::prelude::*};
 
 fn main() {
+    println!();
+    println!("Please press S key and T several times...");
+    println!();
+
     App::new()
         .add_plugins(DefaultPlugins)
         .add_plugins(DspPlugin::default())
