@@ -142,7 +142,7 @@ fn default_sample_rate() -> f32 {
 
     #[allow(clippy::cast_precision_loss)]
     {
-        default_config.sample_rate().0 as f32
+        default_config.sample_rate() as f32
     }
 }
 
