@@ -37,10 +37,10 @@ impl Sound for Iter {
         dt: f64,
         _: &ClockInfoProvider,
         _: &ModulatorValueProvider,
-    ) -> kira::dsp::Frame {
+    ) -> kira::Frame {
         self.advance(dt as f32);
         let frame = self.sample();
-        kira::dsp::Frame {
+        kira::Frame {
             left: frame[0],
             right: frame[1],
         }
@@ -64,7 +64,7 @@ impl Backend for KiraBackend {
         let bytes = dsp_source.to_bytes();
         let cursored = Cursor::new(bytes);
         AudioSource {
-            sound: StaticSoundData::from_cursor(cursored, StaticSoundSettings::new())
+            sound: StaticSoundData::from_cursor(cursored)
                 .unwrap_or_else(|err| panic!("Cannot read DSP source. Error: {err}")),
         }
     }

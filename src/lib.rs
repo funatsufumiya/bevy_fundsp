@@ -148,7 +148,7 @@ fn default_sample_rate() -> f32 {
 
 #[cfg(test)]
 fn default_sample_rate() -> f32 {
-    bevy::log::warn!("This is in test mode!");
+    bevy_log::warn!("This is in test mode!");
     44100.0
 }
 

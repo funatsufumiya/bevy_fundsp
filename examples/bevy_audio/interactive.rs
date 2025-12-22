@@ -55,14 +55,14 @@ fn setup(
 
 fn interactive_audio(input: Res<ButtonInput<KeyCode>>, mut query: Query<(&mut AudioSink, &Dsp)>) {
     if input.just_pressed(KeyCode::KeyS) {
-        for (sink, _) in query.iter_mut().filter(|(_s, d)| **d == Dsp::Sine) {
-            sink.toggle();
+        for (mut sink, _) in query.iter_mut().filter(|(_s, d)| **d == Dsp::Sine) {
+            sink.toggle_mute();
         }
     }
 
     if input.just_pressed(KeyCode::KeyT) {
-        for (sink, _) in query.iter_mut().filter(|(_s, d)| **d == Dsp::Triangle) {
-            sink.toggle();
+        for (mut sink, _) in query.iter_mut().filter(|(_s, d)| **d == Dsp::Triangle) {
+            sink.toggle_mute();
         }
     }
 }
