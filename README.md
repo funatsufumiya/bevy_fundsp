@@ -4,12 +4,11 @@
 
 A third party Bevy plugin that integrates [FunDSP] into [Bevy].
 
-`bevy_fundsp` supports integration for `bevy_audio`, [`bevy_kira_audio`], and `bevy_oddio`.
+`bevy_fundsp` supports integration for `bevy_audio` and [`bevy_kira_audio`].
 
 [FunDSP]: https://github.com/SamiPerttu/fundsp
 [Bevy]: https://github.com/bevyengine/bevy
 [`bevy_kira_audio`]: https://github.com/NiklasEi/bevy_kira_audio
-[`bevy_oddio`]: https://github.com/harudagondi/bevy_oddio
 
 ⚠ **WARNING: Lower your volume before testing your sounds!** ⚠
 
