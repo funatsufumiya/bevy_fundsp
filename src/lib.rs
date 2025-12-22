@@ -118,7 +118,7 @@ pub trait DspAppExt {
 
 impl DspAppExt for App {
     fn add_dsp_source<D: DspGraph>(&mut self, dsp_graph: D, source_type: SourceType) -> &mut Self {
-        let mut dsp_manager = self.world.resource_mut::<DspManager>();
+        let mut dsp_manager = self.world_mut().resource_mut::<DspManager>();
 
         dsp_manager.add_graph(dsp_graph, source_type);
 
