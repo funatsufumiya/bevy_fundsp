@@ -62,7 +62,6 @@ impl DspSource {
     /// as it does not know how long it is.
     ///
     /// Internally, this uses [`fundsp::wave::Wave`].
-    #[cfg_attr(feature = "oddio", allow(dead_code))]
     pub(crate) fn to_bytes(&self) -> Vec<u8> {
         let duration = match self.source_type {
             SourceType::Static { duration } => duration,

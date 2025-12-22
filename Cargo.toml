@@ -13,11 +13,9 @@ categories = ["game-development", "multimedia::audio"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-# default = ["bevy_audio"]
-default = []
+default = ["bevy_audio"]
 kira = ["dep:kira", "bevy_kira_audio"]
 bevy_audio = ["bevy/bevy_audio", "bevy/wav", "rodio"]
-oddio = ["bevy_oddio"]
 
 [dependencies]
 fundsp = "^0.20"
@@ -45,14 +43,6 @@ version = "0.18"
 default-features = false
 features = ["wav"]
 optional = true
-
-[dependencies.bevy_oddio]
-# git = "https://github.com/harudagondi/bevy_oddio"
-# branch = "bevy_main"
-version = "0.5"
-default-features = false
-optional = true
-features = ["wav"]
 
 [dev-dependencies.bevy]
 # git = "https://github.com/bevyengine/bevy"
